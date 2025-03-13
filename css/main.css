@@ -9,6 +9,10 @@
     height: 500px;
     background-color: #2b2b2b;
     margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
 }
 
 .child {

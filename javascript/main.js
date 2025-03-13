@@ -1,8 +1,10 @@
 let parentDiv = document.querySelector(".parent");
 let image = document.createElement("img");
+
 image.classList.add("image");
 image.style.width = "300px";
 image.style.height = "300px";
 image.style.objectFit = "cover";
+image.style.borderRadius = "8px";
 image.src = "../images/pic1.jpg";
-parentDiv.insertAdjacentElement("afterbegin", image)
+parentDiv.insertAdjacentElement("afterbegin", image);
