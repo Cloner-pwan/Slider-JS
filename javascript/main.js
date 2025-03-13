@@ -1,10 +1,38 @@
-let parentDiv = document.querySelector(".parent");
-let image = document.createElement("img");
+let slides = document.querySelectorAll(".slide");
+let nextbtn = document.querySelector("#nextbtn");
+let prevbtn = document.querySelector("#prevbtn");
+let counter = 0;
+let generateSlider = (c) => {
+  slides.forEach((elem, index) => {
+    elem.style.left = `${(index - c) * 100}%`;
+  });
+};
 
-image.classList.add("image");
-image.style.width = "300px";
-image.style.height = "300px";
-image.style.objectFit = "cover";
-image.style.borderRadius = "8px";
-image.src = "../images/pic1.jpg";
-parentDiv.insertAdjacentElement("afterbegin", image);
+generateSlider(counter);
+
+let next = () => {
+  if (counter === slides.length - 1) {
+    counter = 0;
+    generateSlider(counter);
+  } else {
+    counter++;
+    generateSlider(counter);
+  }
+};
+
+let prev = () => {
+  if (counter === 0) {
+    counter = slides.length - 1;
+    generateSlider(counter);
+  } else {
+    counter--;
+    generateSlider(counter);
+  }
+};
+nextbtn.addEventListener("click", () => {
+  next();
+});
+
+prevbtn.addEventListener("click", () => {
+  prev();
+});
