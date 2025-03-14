@@ -1,6 +1,8 @@
 let slides = document.querySelectorAll(".slide");
 let nextbtn = document.querySelector("#nextbtn");
 let prevbtn = document.querySelector("#prevbtn");
+let AutoPlaybtn = document.querySelector("#AutoPlaybtn");
+
 let counter = 0;
 let generateSlider = (c) => {
   slides.forEach((elem, index) => {
@@ -36,3 +38,27 @@ nextbtn.addEventListener("click", () => {
 prevbtn.addEventListener("click", () => {
   prev();
 });
+
+let autoslide = setInterval(() => {
+  next();
+}, 3000);
+
+let intervalStatus = true;
+
+AutoPlaybtn.addEventListener("click", () => {
+  if (intervalStatus === true) {
+    clearInterval(autoslide);
+    AutoPlaybtn.innerHTML = "start";
+    intervalStatus = false;
+  } else {
+    autoslide = setInterval(() => {
+      next();
+    }, 3000);
+    AutoPlaybtn.innerHTML = "stop";
+    intervalStatus = true;
+  }
+});
+
+// setInterval(()=>{
+//   next();
+// }, 3000);
