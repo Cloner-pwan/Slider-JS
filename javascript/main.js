@@ -39,7 +39,7 @@ prevbtn.addEventListener("click", () => {
   prev();
 });
 
-let autoslide = setInterval(() => {
+let autoslider = setInterval(() => {
   next();
 }, 3000);
 
@@ -47,11 +47,11 @@ let intervalStatus = true;
 
 AutoPlaybtn.addEventListener("click", () => {
   if (intervalStatus === true) {
-    clearInterval(autoslide);
+    clearInterval(autoslider);
     AutoPlaybtn.innerHTML = "start";
     intervalStatus = false;
   } else {
-    autoslide = setInterval(() => {
+    autoslider = setInterval(() => {
       next();
     }, 3000);
     AutoPlaybtn.innerHTML = "stop";
